@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de Rede - Infraestrutura Corporativa / Acadêmica</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #2563eb;
+            --accent-color: #059669;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --code-bg: #f1f5f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #93c5fd;
+            font-size: 1.05rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: #166534;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .section-card {
+            background-color: var(--card-bg);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .section-card h2 {
+            color: var(--primary-color);
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eff6ff;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--code-bg);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .badge {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>Projeto de Infraestrutura de Rede Local</h1>
+            <p>Documentação da Topologia no Cisco Packet Tracer</p>
+            <span class="status-badge">Status: Ativo / Configurado</span>
+        </header>
+
+        <main>
+            <section class="section-card">
+                <h2>Visão Geral da Topologia</h2>
+                <p>
+                    O projeto consiste em uma arquitetura de rede local (LAN) conectada à WAN (Internet / Provedor) por meio de um roteador de borda. A rede interna conta com serviços dedicados de infraestrutura (DHCP, HTTP e DNS) e um pool de endereçamento configurado para as estações de trabalho.
+                </p>
+            </section>
+
+            <section class="section-card">
+                <h2>Mapeamento de Dispositivos e Endereçamento</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dispositivo</th>
+                            <th>Interface</th>
+                            <th>Endereço IP</th>
+                            <th>Função / Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cloud0</strong></td>
+                            <td>—</td>
+                            <td><span class="badge">100.10.2.190/10</span></td>
+                            <td>Simulação do IP do Fornecedor / WAN</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Router0 (1941)</strong></td>
+                            <td>g0/1</td>
+                            <td><span class="badge">192.168.0.1</span></td>
+                            <td>Gateway Padrão da Rede LAN</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Server DHCP</strong></td>
+                            <td>f0/5</td>
+                            <td><span class="badge">192.168.0.10</span></td>
+                            <td>Servidor de Atribuição Dinâmica de IPs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Server HTTP</strong></td>
+                            <td>f0/6</td>
+                            <td><span class="badge">192.168.0.11</span></td>
+                            <td>Servidor Web da Redes Interna / Intranet</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Server DNS</strong></td>
+                            <td>f0/7</td>
+                            <td><span class="badge">192.168.0.12</span></td>
+                            <td>Resolução de Nomes da Rede</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PCs (PC0 a PC3)</strong></td>
+                            <td>f0/1 a f0/4</td>
+                            <td><span class="badge">A partir de 192.168.0.100</span></td>
+                            <td>Estações de trabalho do usuário via DHCP</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="section-card">
+                <h2>Serviços e Regras de Negócio</h2>
+                <ul>
+                    <li><strong>Acesso WAN / NAT:</strong> Conexão externa provida via interface <code>g0/0</code> do roteador conectada à nuvem da operadora (<code>100.10.2.190/10</code>).</li>
+                    <li><strong>Alocação de IPs Dinâmicos:</strong> O servidor DHCP gerencia as concessões de endereços a partir do IP <code>192.168.0.100</code>, reservando a faixa inicial para o Gateway e Servidores fixos.</li>
+                    <li><strong>Resolução e Navegação Web:</strong> As estações resolvem domínios locais e externos através do servidor DNS (<code>192.168.0.12</code>) e acessam serviços Web hospedados no servidor HTTP (<code>192.168.0.11</code>).</li>
+                    <li><strong>Comutação Centralizada:</strong> O Switch Cisco 2960-24TT gerencia a interconexão em Layer 2 através das portas FastEthernet e GigabitEthernet.</li>
+                </ul>
+            </section>
+
+            <section class="section-card">
+                <h2>Tecnologias Utilizadas</h2>
+                <ul>
+                    <li><strong>Simulador:</strong> Cisco Packet Tracer</li>
+                    <li><strong>Ativos de Rede:</strong> Roteador Cisco 1941, Switch Cisco 2960-24TT</li>
+                    <li><strong>Protocolos de Rede:</strong> IPv4, DHCP, DNS, HTTP, Ethernet (802.3)</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Documentação de Projeto de Redes de Computadores</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

@@ -38,7 +38,7 @@ Para garantir organização, segurança e escalabilidade na sub-rede interna (**
    - Hospedagem do portal web interno e documentação do ambiente corporativo.
 
 4. **Servidor DNS (`192.168.0.12`):**
-   - Configuração de **Registro A** apontando o domínio personalizado `www.pedroisaias.com.br` diretamente para o IP da aplicação web (`192.168.0.11`).
+   - Configuração de **Registro A** apontando o domínio personalizado `www.pedroteste.com.br` diretamente para o IP da aplicação web (`192.168.0.11`).
 
 ---
 
